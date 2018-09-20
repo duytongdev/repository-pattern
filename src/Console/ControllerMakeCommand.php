@@ -49,6 +49,8 @@ class ControllerMakeCommand extends GeneratorCommand
      */
     protected function createRequest()
     {
+        $name = $this->qualifyClass($this->getNameInput());
+
         $this->call('make:request', [
             'name' => str_replace('Controller', '', str_replace($this->getNamespace($name) . '\\', '', $name) . 'Request')
         ]);
