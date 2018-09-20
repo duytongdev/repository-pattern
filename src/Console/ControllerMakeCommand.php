@@ -29,6 +29,32 @@ class ControllerMakeCommand extends GeneratorCommand
     protected $type = 'Controller';
 
     /**
+     * Execute the console command.
+     *
+     * @return void
+     */
+    public function handle()
+    {
+        parent::handle();
+
+        if ($this->option('resource') || $this->option('api')) {
+            $this->createRequest();
+        }
+    }
+
+    /**
+     * Create a request for the controller.
+     * 
+     * @return void
+     */
+    protected function createRequest()
+    {
+        $this->call('make:request', [
+            'name' => str_replace('Controller', '', str_replace($this->getNamespace($name) . '\\', '', $name) . 'Request')
+        ]);
+    }
+
+    /**
      * Get the stub file for the generator.
      *
      * @return string
