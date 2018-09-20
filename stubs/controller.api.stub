@@ -1,0 +1,42 @@
+<?php
+
+namespace DummyNamespace;
+
+use App\Http\Requests\DummyRequest;
+use App\Repositories\DummyRepository;
+use DummyRootNamespaceHttp\Controllers\Controller;
+
+class DummyClass extends Controller
+{
+    public $DummyInstance;
+
+    public function __construct(DummyRepository $DummyInstance)
+    {
+        $this->DummyInstance = $DummyInstance;
+    }
+    
+    public function index(DummyRequest $request)
+    {
+        return $this->DummyInstance->index($request->perPage);
+    }
+
+    public function store(DummyRequest $request)
+    {
+        return $this->DummyInstance->store($request->all());
+    }
+
+    public function show($id)
+    {
+        return $this->DummyInstance->show($id);
+    }
+
+    public function update(DummyRequest $request, $id)
+    {
+        return $this->DummyInstance->update($request->all(), $id);
+    }
+
+    public function destroy($ids)
+    {
+        return $this->DummyInstance->destroy($ids);
+    }
+}

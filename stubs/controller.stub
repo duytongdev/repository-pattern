@@ -1,0 +1,16 @@
+<?php
+
+namespace DummyNamespace;
+
+use Illuminate\Http\Request;
+use App\Repositories\DummyRepository;
+
+class DummyClass extends Controller
+{
+    public $DummyInstance;
+
+    public function __construct(DummyRepository $DummyInstance)
+    {
+        $this->DummyInstance = $DummyInstance;
+    }
+}

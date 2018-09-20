@@ -1,0 +1,21 @@
+{
+    "name": "duytongdev/repository-pattern",
+    "authors": [
+        {
+            "name": "Duy Tong",
+            "email": "duytongdev@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "RepositoryPattern\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "RepositoryPattern\\RepositoryPatternServiceProvider"
+            ]
+        }
+    }
+}
